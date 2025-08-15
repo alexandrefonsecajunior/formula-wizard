@@ -6,6 +6,8 @@ import { useAuth } from "@/hooks/useAuth";
 import FormulaEditor from '@/components/FormulaEditor';
 import VariableInputs from '@/components/VariableInputs';
 import ResultDisplay from '@/components/ResultDisplay';
+import { SaveFormulaDialog } from '@/components/SaveFormulaDialog';
+import { SavedFormulas } from '@/components/SavedFormulas';
 import { extractVariables, evaluateFormula } from '@/utils/formulaParser';
 
 const Index = () => {
@@ -43,6 +45,11 @@ const Index = () => {
       ...prev,
       [variable]: value
     }));
+  };
+
+  const handleLoadFormula = (loadedFormula: string, loadedValues: Record<string, number>) => {
+    setFormula(loadedFormula);
+    setVariableValues(loadedValues);
   };
 
   useEffect(() => {
@@ -120,9 +127,15 @@ const Index = () => {
 
             {/* Variable Inputs */}
             <div>
-              <h2 className="text-xl font-semibold mb-3 text-foreground">
-                Valores das Variáveis
-              </h2>
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-xl font-semibold text-foreground">
+                  Valores das Variáveis
+                </h2>
+                <SaveFormulaDialog 
+                  formula={formula}
+                  variableValues={variableValues}
+                />
+              </div>
               <VariableInputs
                 variables={variables}
                 values={variableValues}
@@ -144,6 +157,9 @@ const Index = () => {
                 isCalculating={isCalculating}
               />
             </div>
+
+            {/* Saved Formulas */}
+            <SavedFormulas onLoadFormula={handleLoadFormula} />
 
             {/* Examples */}
             <div className="space-y-3">

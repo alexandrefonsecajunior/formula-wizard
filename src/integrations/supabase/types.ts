@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      formulas: {
+        Row: {
+          created_at: string
+          description: string | null
+          formula: string
+          id: string
+          name: string
+          updated_at: string
+          user_id: string
+          values: Json | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          formula: string
+          id?: string
+          name: string
+          updated_at?: string
+          user_id: string
+          values?: Json | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          formula?: string
+          id?: string
+          name?: string
+          updated_at?: string
+          user_id?: string
+          values?: Json | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
