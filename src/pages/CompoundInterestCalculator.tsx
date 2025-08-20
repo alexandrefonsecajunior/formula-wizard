@@ -37,7 +37,7 @@ const CompoundInterestCalculator = () => {
   const [variableValues, setVariableValues] = useState<Record<string, number>>({
     capital_inicial: 10000,
     aporte_mensal: 500,
-    taxa_mensal: 0.01, // 1% ao mês
+    taxa_mensal: 0.01, // 1% ao mês (0.01 = 1%)
     periodo_meses: 12
   });
   

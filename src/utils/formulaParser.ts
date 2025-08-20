@@ -34,15 +34,18 @@ export const evaluateFormula = (formula: string, variables: Record<string, numbe
     throw new Error(`Variáveis sem valor: ${remainingVariables.join(', ')}`);
   }
   
-  // Sanitize the formula for security
-  const sanitizedFormula = processedFormula.replace(/[^0-9+\-*/().\s]/g, '');
+  // Convert ^ to ** for JavaScript power operator
+  let jsFormula = processedFormula.replace(/\^/g, '**');
   
-  if (sanitizedFormula !== processedFormula) {
+  // Sanitize the formula for security (allowing numbers, operators, parentheses, dots, spaces, and ** for power)
+  const sanitizedFormula = jsFormula.replace(/[^0-9+\-*\/().\s]/g, '');
+  
+  if (sanitizedFormula !== jsFormula) {
     throw new Error('Fórmula contém caracteres inválidos');
   }
   
-  // Check for valid mathematical expression
-  if (!/^[\d+\-*/().\s]+$/.test(sanitizedFormula)) {
+  // Check for valid mathematical expression (allowing ** for power operations)
+  if (!/^[\d+\-*\/().\s]+$/.test(sanitizedFormula)) {
     throw new Error('Expressão matemática inválida');
   }
   
