@@ -109,11 +109,23 @@ const Index = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Crie, calcule e compartilhe fórmulas matemáticas personalizadas com variáveis dinâmicas
           </p>
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-4 flex-wrap">
             <Link to="/compound-interest">
               <Button className="gap-2 bg-gradient-primary hover:opacity-90 transition-opacity">
                 <TrendingUp className="h-4 w-4" />
                 Calculadora de Juros Compostos
+              </Button>
+            </Link>
+            <Link to="/planos">
+              <Button variant="outline" className="gap-2">
+                <Calculator className="h-4 w-4" />
+                Ver Planos (PT)
+              </Button>
+            </Link>
+            <Link to="/pricing">
+              <Button variant="outline" className="gap-2">
+                <Calculator className="h-4 w-4" />
+                View Plans (EN)
               </Button>
             </Link>
           </div>
