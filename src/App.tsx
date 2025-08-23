@@ -7,6 +7,9 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import CompoundInterestCalculator from "./pages/CompoundInterestCalculator";
+import PricingPT from "./pages/PricingPT";
+import PricingEN from "./pages/PricingEN";
+import Success from "./pages/Success";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +25,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
+            <Route path="/planos" element={<PricingPT />} />
+            <Route path="/pricing" element={<PricingEN />} />
+            <Route path="/success" element={<Success />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
