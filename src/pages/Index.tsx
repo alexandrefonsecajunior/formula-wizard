@@ -123,6 +123,12 @@ const Index = () => {
                 Calculadora de Juros Compostos
               </Button>
             </Link>
+            <Link to="/compound-interest-2">
+              <Button variant="outline" className="gap-2 border-primary/30 hover:bg-primary/10">
+                <Calculator className="h-4 w-4" />
+                Multi-Calculadora Avançada
+              </Button>
+            </Link>
             <Link to="/planos">
               <Button variant="outline" className="gap-2">
                 <Calculator className="h-4 w-4" />

@@ -7,6 +7,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import CompoundInterestCalculator from "./pages/CompoundInterestCalculator";
+import CompoundInterest2 from "./pages/CompoundInterest2";
 import PricingPT from "./pages/PricingPT";
 import PricingEN from "./pages/PricingEN";
 import Success from "./pages/Success";
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
+            <Route path="/compound-interest-2" element={<CompoundInterest2 />} />
             <Route path="/planos" element={<PricingPT />} />
             <Route path="/pricing" element={<PricingEN />} />
             <Route path="/success" element={<Success />} />
