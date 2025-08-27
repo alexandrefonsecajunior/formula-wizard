@@ -247,13 +247,24 @@ const CompoundInterest2 = () => {
                             onChange={(value) => handleFormulaChange(formula.id, value)}
                           />
                         </div>
-                        <div>
-                          <Label className="text-sm font-medium mb-2 block">Resultado</Label>
-                          <ResultDisplay
-                            result={formula.result}
-                            error={formula.error}
-                            isCalculating={formula.isCalculating}
-                          />
+                        <div className="flex items-center justify-between pt-2 border-t border-primary/10">
+                          <Label className="text-sm font-medium text-muted-foreground">Resultado:</Label>
+                          <div className="flex items-center gap-2">
+                            {formula.isCalculating ? (
+                              <div className="animate-pulse text-sm text-muted-foreground">Calculando...</div>
+                            ) : formula.error ? (
+                              <div className="text-sm text-destructive">Erro</div>
+                            ) : formula.result !== null ? (
+                              <div className="text-sm font-mono text-primary-glow">
+                                {formula.result.toLocaleString('pt-BR', { 
+                                  minimumFractionDigits: 2, 
+                                  maximumFractionDigits: 2 
+                                })}
+                              </div>
+                            ) : (
+                              <div className="text-sm text-muted-foreground">--</div>
+                            )}
+                          </div>
                         </div>
                       </CardContent>
                     </AccordionContent>
