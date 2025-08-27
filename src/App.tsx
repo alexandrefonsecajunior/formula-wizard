@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
+import { Layout } from "@/components/Layout";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import CompoundInterestCalculator from "./pages/CompoundInterestCalculator";
@@ -22,17 +23,19 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
-            <Route path="/compound-interest-2" element={<CompoundInterest2 />} />
-            <Route path="/planos" element={<PricingPT />} />
-            <Route path="/pricing" element={<PricingEN />} />
-            <Route path="/success" element={<Success />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/compound-interest" element={<CompoundInterestCalculator />} />
+              <Route path="/compound-interest-2" element={<CompoundInterest2 />} />
+              <Route path="/planos" element={<PricingPT />} />
+              <Route path="/pricing" element={<PricingEN />} />
+              <Route path="/success" element={<Success />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>

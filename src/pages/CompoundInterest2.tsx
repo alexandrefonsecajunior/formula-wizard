@@ -178,11 +178,7 @@ const CompoundInterest2 = () => {
       <div className="container mx-auto px-4 py-8 max-w-6xl relative z-10">
         {/* Header */}
         <header className="text-center mb-8 space-y-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-              <ArrowLeft className="h-4 w-4" />
-              Voltar
-            </Link>
+          <div className="flex items-center justify-center">
             <div className="flex items-center gap-3">
               <div className="p-3 bg-gradient-accent rounded-xl shadow-glow border border-primary/20">
                 <Calculator className="h-8 w-8 text-primary-glow" />
@@ -191,7 +187,6 @@ const CompoundInterest2 = () => {
                 Multi-Calculadora
               </h1>
             </div>
-            <div></div>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Crie múltiplas fórmulas interconectadas e calcule resultados simultâneos
